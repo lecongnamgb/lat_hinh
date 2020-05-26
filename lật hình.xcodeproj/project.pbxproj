@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FA3FEDE7247D03C4000F0D41 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3FEDE6247D03C4000F0D41 /* main.cpp */; };
+		FA3FEDF0247D040E000F0D41 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3FEDEF247D040E000F0D41 /* libSDL2-2.0.0.dylib */; };
+		FA3FEDF2247D042A000F0D41 /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3FEDF1247D042A000F0D41 /* libSDL2_image-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,9 @@
 /* Begin PBXFileReference section */
 		FA3FEDE3247D03C4000F0D41 /* lật hình */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "lật hình"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3FEDE6247D03C4000F0D41 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		FA3FEDED247D03EF000F0D41 /* lật hình.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lật hình.entitlements"; sourceTree = "<group>"; };
+		FA3FEDEF247D040E000F0D41 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2/2.0.12_1/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		FA3FEDF1247D042A000F0D41 /* libSDL2_image-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_image-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2_image/2.0.5/lib/libSDL2_image-2.0.0.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3FEDF2247D042A000F0D41 /* libSDL2_image-2.0.0.dylib in Frameworks */,
+				FA3FEDF0247D040E000F0D41 /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +50,7 @@
 			children = (
 				FA3FEDE5247D03C4000F0D41 /* lật hình */,
 				FA3FEDE4247D03C4000F0D41 /* Products */,
+				FA3FEDEE247D040E000F0D41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +65,19 @@
 		FA3FEDE5247D03C4000F0D41 /* lật hình */ = {
 			isa = PBXGroup;
 			children = (
+				FA3FEDED247D03EF000F0D41 /* lật hình.entitlements */,
 				FA3FEDE6247D03C4000F0D41 /* main.cpp */,
 			);
 			path = "lật hình";
+			sourceTree = "<group>";
+		};
+		FA3FEDEE247D040E000F0D41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA3FEDF1247D042A000F0D41 /* libSDL2_image-2.0.0.dylib */,
+				FA3FEDEF247D040E000F0D41 /* libSDL2-2.0.0.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +256,16 @@
 		FA3FEDEB247D03C4000F0D41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "lật hình/lật hình.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55G6BZPMG7;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl2/2.0.12_1/lib,
+					/usr/local/Cellar/sdl2_image/2.0.5/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,9 +273,16 @@
 		FA3FEDEC247D03C4000F0D41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "lật hình/lật hình.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55G6BZPMG7;
 				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/sdl2/2.0.12_1/lib,
+					/usr/local/Cellar/sdl2_image/2.0.5/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
