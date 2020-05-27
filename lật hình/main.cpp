@@ -20,7 +20,7 @@ const string WINDOW_TITLE = "lat hinh";
 
 bool opened[DEFAULT_NUM_ROWS*DEFAULT_NUM_COLS];
     
-int click=0,selected=0;
+int click=0,selected;
 
 vector<int> imagePos;
 
@@ -235,13 +235,11 @@ void update(Graphic &g,int click,int value,int selected)
         for (int j=0;j<nCols;j++)
         {
             int val=nRows*i+j;
-            int k=0,Pos=9;
-            if ((click==1 && val==value) || (click==2 && val==value) || (click==2 && val==selected) ) k=1;
-            if (click==2 && value==selected) k=0;
+            int Pos=9;
+            if ((click==1 && val==value) || (click==2 && val==value) || (click==2 && val==selected) ) Pos=imagePos[val]%9;
             //hiện những ô click lần 1 và lần 2
-            if (opened[val]) k=2;
-            if (k==2) Pos=val+10;
-            if (k==1) Pos=imagePos[val]%9;
+            if (click==2 && value==selected) Pos=9;
+            if (opened[val]) Pos=val+10;
             rect={j*GAME_CELL_WIDTH,i*GAME_CELL_HEIGHT,GAME_CELL_WIDTH,GAME_CELL_HEIGHT};
             SDL_RenderCopy(g.renderer,
                            g.texture,
@@ -258,7 +256,7 @@ void clickMouse(SDL_Event &event,Graphic &g)
     int row=mouse.y/GAME_CELL_WIDTH;
     int col=mouse.x/GAME_CELL_HEIGHT;
     int value=row*DEFAULT_NUM_COLS+col;
-    if (opened[value]) update(g, 0, 0, 0); //nếu click vào ô đã mở thì ko làm gì
+    if (opened[value]); //update(g, 0, 0, 0); //nếu click vào ô đã mở thì ko làm gì
     else
         {
             click++;
